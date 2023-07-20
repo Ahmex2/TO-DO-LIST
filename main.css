@@ -171,7 +171,7 @@ header {
   border: none;
   font-size: var(--font-size-base);
   background-color: transparent;
- transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
   color: var(--text-color);
   font-weight: var(--font-weight-normal);
 }
@@ -230,7 +230,7 @@ header {
     transform: translateY(-5px);
   }
   50% {
-    transform: translateY(5px);
+    transform: translateY(0);
   }
   75% {
     transform: translateY(-5px);
@@ -240,60 +240,25 @@ header {
   }
 }
 
-@media (max-width: 768px) {
-  /* Styles for screens smaller than 768px */
-  h1 {
-    font-size: 2rem;
+.delete {
+  background-color: #ff3333;
+  color: #ffffff;
+  animation: bounceInRight 0.5s ease-in-out;
+}
+
+/* Keyframe animation */
+@keyframes bounceInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
   }
-  
-  .task {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0.5rem;
-  }
-  
-  .text {
-    font-size: 0.8rem;
-  }
-  
-  .actions {
-    margin-left: 0;
-    margin-top: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
-  .edit, .delete {
-    font-size: 0.8rem;
-    padding: 0.25rem 0.5rem;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
-@media (max-width: 480px) {
-  /* Styles for screens smaller than 480px */
-  h1 {
-    font-size: 1.5rem;
-  }
-  
-  h3 {
-    font-size: 0.8rem;
-  }
-  
-  #new-task-input {
-    font-size: 0.8rem;
-  }
-  
-  #new-task-submit {
-    font-size: 0.8rem;
-    padding: 0.25rem 0.5rem;
-  }
-  
-  .text {
-    font-size: 0.6rem;
-  }
-  
-  .edit, .delete {
-    font-size: 0.6rem;
-  }
+.delete:hover {
+  background-color: #cc0000;
+  animation: bounce 0.5s ease-in-out;
 }

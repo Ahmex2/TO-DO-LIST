@@ -64,6 +64,7 @@ header {
 /* New task form */
 #new-task-form {
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-top: 2rem;
   animation: slideInUp 0.5s ease-in-out;
@@ -71,7 +72,8 @@ header {
 
 #new-task-input {
   font-family: var(--font-family);
-  flex-grow: 1;
+  width: 100%;
+  max-width: 600px;
   padding: 0.5rem;
   border: none;
   border-bottom: 2px solid var(--text-color);
@@ -88,7 +90,7 @@ header {
 
 #new-task-submit {
   font-family: 'Montserrat', sans-serif;
-  margin-left: 1rem;
+  margin-top: 1rem;
   padding: 0.5rem 1rem;
   background-color: var(--primary-color);
   color: var(--secondary-color);
@@ -100,6 +102,8 @@ header {
   letter-spacing: 1px;
   border-radius: 3px;
   text-transform: uppercase;
+  max-width: 200px;
+  width: 100%;
 }
 
 #new-task-submit:hover {
@@ -149,6 +153,7 @@ header {
 
 .task {
   display: flex;
+  flex-direction: column;
   align-items: center;
   padding: 1rem;
   border-bottom: 1px solid #666666;
@@ -181,7 +186,11 @@ header {
 }
 
 .actions {
-  margin-left: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
 }
 
 .edit, .delete {
@@ -195,6 +204,7 @@ header {
   letter-spacing: 1px;
   border-radius: 3px;
   text-transform: uppercase;
+  width: 45%;
 }
 
 .edit {
@@ -230,7 +240,7 @@ header {
     transform: translateY(-5px);
   }
   50% {
-    transform: translateY(0);
+    transform: translateY(5px);
   }
   75% {
     transform: translateY(-5px);
@@ -240,25 +250,63 @@ header {
   }
 }
 
-.delete {
-  background-color: #ff3333;
-  color: #ffffff;
-  animation: bounceInRight 0.5s ease-in-out;
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+  
+  header {
+    padding: 0.5rem;
+  }
+  
+  #new-task-input {
+    max-width: 100%;
+  }
+  
+  #new-task-submit {
+    max-width: none;
+    width: auto;
+  }
+  
+  .task {
+    flex-direction: column;
+  }
+  
+  .text {
+    margin-top: 1rem;
+  }
+  
+  .actions {
+    margin-top: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: none;
+  }
+  
+  .edit, .delete {
+    width: 48%;
+  }
 }
 
-/* Keyframe animation */
-@keyframes bounceInRight {
-  from {
-    opacity: 0;
-    transform: translateX(100%);
+@media only screen and (max-width: 576px) {
+  h1 {
+    font-size: 1.5rem;
   }
-  to {
-    opacity: 1;
-    transform: translateX(0);
+  
+  h2 {
+    font-size: 1.25rem;
   }
-}
-
-.delete:hover {
-  background-color: #cc0000;
-  animation: bounce 0.5s ease-in-out;
+  
+  h3 {
+    font-size: 1rem;
+  }
 }

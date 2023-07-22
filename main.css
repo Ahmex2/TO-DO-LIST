@@ -193,20 +193,22 @@
    max-width: 600px; 
  } 
   
- .edit, .delete { 
-   font-family: 'Montserrat', sans-serif; 
-   padding: 0.5rem 1rem; 
-   border: none; 
-   font-size: var(--font-size-base); 
-   cursor: pointer; 
-   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; 
-   font-weight: var(--font-weight-bold); 
-   letter-spacing: 1px; 
-   border-radius: 3px; 
-   text-transform: uppercase; 
-   width: 45%; 
- } 
-  
+ .edit, .delete {
+  font-family: 'Montserrat', sans-serif;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 1px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  width: 45%;
+  max-width: 200px; /* set max-width to prevent buttons from getting too wide on larger screens */
+  margin: 0.5rem; /* add some margin between buttons */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* add a subtle box-shadow */
+}
  .edit { 
    background-color: var(--secondary-color); 
    color: var(--background-color); 
@@ -379,27 +381,47 @@
 .image-container img:last-child {
   animation-name: slideInFromRight;
 }
+    
+    
+
+
 pre {
-  font-family: 'Roboto', sans-serif;
-  font-weight: var(--font-weight-normal);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
-  margin: 0 auto;
-  padding: 20px;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  white-space: pre-wrap;
-  border: 2px solid var(--primary-color);
-  animation: fadeIn 1s ease-in-out;
+font-family: 'Courier New', sans-serif;
+font-weight: var(--font-weight-normal);
+font-size: var(--font-size-base);
+line-height: var(--line-height-base);
+margin: 0 auto;
+padding: 20px;
+background-color: var(--background-color);
+color: var(--text-color);
+white-space: pre-wrap;
+border: 2px solid var(--primary-color);
+animation: fadeIn 1s ease-in-out, colorChange 5s infinite;
+text-align: center;
+text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+transform: perspective(500px) rotateX(15deg) rotateY(15deg);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@media screen and (max-width: 767px) {
+pre {
+font-size: calc(var(--font-size-base) + 1vw);
+line-height: calc(var(--line-height-base) + 1vw);
+transform: perspective(500px) rotateX(20deg) rotateY(10deg);
+}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+pre {
+font-size: calc(var(--font-size-base) + 2vw);
+line-height: calc(var(--line-height-base) + 1.5vw);
+transform: perspective(500px) rotateX(10deg) rotateY(10deg);
+}
+}
+
+@media screen and (min-width: 1024px) {
+pre {
+font-size: calc(var(--font-size-base) + 1vw);
+line-height: calc(var(--line-height-base) + 1vw);
+transform: perspective(500px) rotateX(5deg) rotateY(5deg);
+}
 }
